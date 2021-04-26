@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [11, 22, 22, 55, 66, 11, 88, 66, 77, 66]
+        //找出66在数组中的位置
+        // var a=0
+        arr.forEach(function (v, k) {
+            if (v == 66) {
+                console.log(k)
+            }
+            // a+=v
+        })
+        // console.log(a)
+
+
+        //计算数组中元素的和
+        function add() {
+            return arguments[0] + arguments[1] + arguments[2] + arguments[3] + arguments[4] + arguments[5] + arguments[6] + arguments[7] + arguments[8] + arguments[9]
+        }
+        console.log(add(11, 22, 22, 55, 66, 11, 88, 66, 77, 66))
+
+
+        //移除数组 arr 中的所有值等于 22 的元素，不要直接修改数组 arr，结果返回新的数组
+        arr.splice(1, 2);
+        console.log(arr)
+
+        // 移除数组 arr 中的所有值等于 22 的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+       function add(arrr,item){
+           for(i=0; i<arr.length;i++){
+                if(item==arr[i]){
+                    arr.splice(i,1);
+                    i--
+                }
+          }
+          return arr;
+       }q
+       console.log(add(arr,22))
+        
+            // 统计数组 arr 中值等于 66 的元素出现的次数
+            var num = 0
+            arr.forEach(function (v, k) {
+                if (v == 66) {
+                    num++  //v是索引 k是值
+                }
+                console.log(num);
+            })
+    </script>
+</body>
+
+</html>

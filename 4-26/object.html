@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建函数的方法
+        // 1从构造函数new
+        function Person(name,age){
+            this.name = name
+            this.age = age
+        }
+
+        var p1 = new Person('zhangsi',11)
+        var p2 = new Person('xiaohua',22)
+
+        //2对象字面量{}
+        var obj1 = {}
+        var obj2 = {
+            color: 'red',
+            width: '100px',
+        }
+
+        obj2.hello = function(){
+            alert("hello world")
+        }
+        console.log(obj2)
+        console.log(obj2.color)
+        obj2.hello()
+    </script>
+</body>
+</html>

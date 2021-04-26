@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj ={
+            name:'zhangsi',
+            age:11,
+            sex:'M'
+        }
+
+        //向obj中添加一个属性 email
+        obj.email = "zhangsi@qq.com"
+
+        console.log(obj)
+        //删除 obj对象中的 age属性
+        delete obj.age
+        console.log(obj)
+
+        //对象的权举 for in
+        for(k in obj){
+            console.log(k,obj[k])
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     function $(param){
+        var obj=null;
+        if(param.substr(0,1)=="#"){
+            obj= document.querySelector(param)
+        }else if(param.substr(0,1)=="."){
+            obj= document.querySelectorAll(param)
+        }else{
+            obj= document.querySelectorAll(param)
+        }
+        obj.onn=function(event,fn){
+            obj.addEventListener(event,fn)
+        }
+        return obj;
+    }
+
+    
+  $("#p1").onn('click',function(){
+      alert(123)
+  })
+
+
+  var a=$("#p1")
+  console.log(a);
+  
+</script>
