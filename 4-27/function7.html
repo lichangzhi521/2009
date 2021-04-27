@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(){
+
+        }
+
+        Person.prototype.name="noname"
+
+        var p1 = new Person()
+
+        function Asian(){
+
+        }
+        Asian.prototype = new Person()
+        Asian.prototype.color="yellow";
+        
+        var p2 = new Asian()
+        console.log(p2)
+        console.log(p2.name)
+
+
+
+        function Chinese(){
+
+        }
+        Chinese.prototype = new Asian()
+        var p3 = new Chinese()
+        console.log(p3)
+        console.log(p3.name)
+        console.log(p3.color)
+        console.log(p3.xxx)
+
+        console.log("Person的原型:",Person.prototype)
+    </script>
+</body>
+</html>

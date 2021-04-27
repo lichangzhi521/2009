@@ -12,25 +12,27 @@
     <script>
         var arr = [11, 22, 22, 55, 66, 11, 88, 66, 77, 66]
         //找出66在数组中的位置
-        // var a=0
-        arr.forEach(function (v, k) {
-            if (v == 66) {
+        function aa(arr,x){
+            var pos=[]
+            arr.forEach(function (v,k) {
+            if (v == x) {
                 console.log(k)
-            }
-            // a+=v
-        })
-        // console.log(a)
-
-
-        //计算数组中元素的和
-        function add() {
-            return arguments[0] + arguments[1] + arguments[2] + arguments[3] + arguments[4] + arguments[5] + arguments[6] + arguments[7] + arguments[8] + arguments[9]
+                pos.push(k);
+             }
+          })
+            return pos
         }
-        console.log(add(11, 22, 22, 55, 66, 11, 88, 66, 77, 66))
-
+        console.log(aa(arr,66))
+        
+        //计算数组中元素的和
+        var dom =0
+        arr.forEach(function(v){
+            dom+=v         //dom = dom +v
+        })
+        console.log(dom)
 
         //移除数组 arr 中的所有值等于 22 的元素，不要直接修改数组 arr，结果返回新的数组
-        arr.splice(1, 2);z'x'z'x'z'x'z
+        arr.splice(1, 2);
         console.log(arr)
 
         // 移除数组 arr 中的所有值等于 22 的元素，直接在给定的 arr 数组上进行操作，并将结果返回

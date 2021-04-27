@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,sex){
+            this.name = name
+            this.sex = sex
+        }
+
+        //查看person的原型
+        console.log(Person.prototype)
+
+        Person.prototype.age = 0    //在原型上添加属性
+        var p1 = new Person("zhangsan",11)
+        var p2 = new Person('lis',22)
+        console.log(p1)
+        console.log(p2.age)
+    </script>
+</body>
+</html>
