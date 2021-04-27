@@ -14,31 +14,31 @@
 
         Person.prototype.name="noname"
 
-        var p1 = new Person()
+        var p1 = new Person(); 
 
         function Asian(){
 
         }
-        Asian.prototype = new Person()
+        Asian.prototype = new Person();
         Asian.prototype.color="yellow";
         
-        var p2 = new Asian()
-        console.log(p2)
-        console.log(p2.name)
+        var p2 = new Asian();
+        console.log(p2);
+        console.log(p2.name);
 
 
 
         function Chinese(){
 
         }
-        Chinese.prototype = new Asian()
-        var p3 = new Chinese()
+        Chinese.prototype = new Asian();
+        var p3 = new Chinese();
         console.log(p3)
-        console.log(p3.name)
-        console.log(p3.color)
-        console.log(p3.xxx)
+        console.log(p3.name);
+        console.log(p3.color);
+        console.log(p3.xxx);
 
-        console.log("Person的原型:",Person.prototype)
+        console.log("Person的原型:",Person.prototype);
     </script>
 </body>
 </html>
