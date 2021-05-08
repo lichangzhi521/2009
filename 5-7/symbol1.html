@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      const info_a = {
+          [Symbol("name")]:"ladeng",
+          [Symbol("age")]:44,
+          [Symbol("sex")]:"保密",
+          [Symbol("address")]:"伊朗"
+
+      }
+
+      const info_b = {
+        [Symbol("name")]:"ladeng",
+        [Symbol("age")]:46,
+        [Symbol("sex")]:"M",
+        [Symbol("address")]:"王全欧"
+
+      }
+
+ let p1 =  Object.assign(info_a,info_b);
+ console.log(p1);
+    //   const info_c = {
+    //       name: "ben laddeng",
+    //       age: "48",
+    //       sex: "M",
+    //       address:"afuhan"
+    //   }
+
+
+      
+    </script>
+</body>
+</html>

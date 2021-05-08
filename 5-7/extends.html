@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承</title>
+</head>
+<body>
+    <script>
+        class A{
+
+            hell(){
+                console.log(11111);
+            }
+            //构造函数（方法）
+            constructor(name,age){
+                this.name=name
+                this.age=age
+            }
+
+            static hel(){
+                this.sex=0
+            }
+        }
+
+        class B extends A{
+            
+        }
+
+        class C extends B{
+
+        }
+
+        const obj1= new B("zhangsan",111)
+        console.log(obj1);
+        obj1.hell();
+        C.hel();
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {
+            name: "zhangshi",
+            age:11,
+            hello(){
+                console.log(1111);
+            },
+            haha:function(){
+
+            },
+            score:[11,22,33,44],
+            home:{
+
+            }
+        }
+        //获取对象原型 __proto__
+        let po = Object.getPrototypeOf(obj1)
+        console.log(Object.prototype == Object.getPrototypeOf(obj1))
+
+        obj1.sex = "男"
+
+        Object.defineProperty(obj1,"email",{
+            value:"zhangshi@qq.com",
+            writable:true,  //表示属性可写
+            configurable:true,  //表示属性可通过 delete 删除
+            enumerable:true,    //表示可权举
+        })
+        //属性拦截器 get / set
+        Object.defineProperty(obj1,"address",{
+            //当读 对象的 address属性时触发
+            get:function(){
+                console.log("触发了get方法");
+            },
+            set:function(new_value){
+                console.log("触发了get方法");
+            }
+        })
+        //读address属性
+        obj1.address
+        obj1.address = "北京"
+
+        console.log(obj1);
+
+        //权举对象的属性
+        for(k in obj1){
+            console.log(k,obj1[k]);
+        }
+
+        //获取对象的 键值对
+        let karr = Object.keys(obj1)
+        console.log("对象的键值对:",karr);
+
+        //获取对象的key对应的值
+        let varr = Object.values(obj1)
+        console.log("对象中的值:",varr);
+
+        //删除对象的属性
+        console.log("删除前:",obj1);
+        delete obj1.name
+        console.log("删除后:",obj1);
+    </script>
+</body>
+</html>

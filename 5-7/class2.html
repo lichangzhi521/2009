@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态方法</title>
+</head>
+<body>
+    <script>
+        class A{
+            //构造方法
+            constructor(){
+
+            }
+            //定义一个静态方法 该方法 使用 类名，方法名（）访问 不需要实例化
+            static hello(){
+                console.log(1111);
+            }
+            
+            //定义一个普通方法 通过实例访问 实例，方法名（）
+            hllo (){
+                console.log(22222);
+            }
+        }
+
+        const obj1 = new A();
+        obj1.hllo();
+        A.hello();
+        
+    </script>
+</body>
+</html>

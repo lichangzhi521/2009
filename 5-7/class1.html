@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>
+    <script>
+        class A{
+            //构造函数(方法)用来做一些初始化的工作
+            constructor(name,age){
+                this.name= name
+                this.age = age
+            }   
+            a(){
+                console.log(this.name);
+            }n 
+            b(){
+                console.log(2222);
+            }
+        }
+        let p1 = new A("zhangsan",111)
+        let p2 = new A("lishi",222)
+        console.log(p1);
+        console.log(p2);
+        p1.a()
+    </script>
+</body>
+</html>
