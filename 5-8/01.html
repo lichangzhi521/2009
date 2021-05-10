@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            uName: '张三',
+            age: 20,
+            addr: '李四'
+        };
+        //为obj添加iterator接口，接口在Symbol.iterator属性中
+        obj[Symbol.iterator] = function () {
+            // Object.keys()获取的是obj的key是一个数组
+            let key = Object.keys(this);
+            let index = 0;
+            return {
+                next() {
+                    if (index < key.length) {
+                        return {
+                            value: obj[key[index++]],
+                            done: false
+                        }
+                    } else {
+                        return {
+                            value: undefined,
+                            done: true
+                        }
+                    }
+                }
+            }
+        }
+        for (let i of obj) {
+            console.log(i);
+        }
+// 张三
+// 20
+// 李四
+    </script>
+</body>
+
+</html>

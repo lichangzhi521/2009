@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str=''
+        new Promise(function(resolve,reject){
+             //当异步操作成功 调用resolve
+             //原生Ajax
+             //第一步 实例化XHR  创建一个XHR对象
+        var xhr = new XMLHttpRequest()
+        //监听
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                //接收服务器响应数据
+                var res_data = xhr.responseText
+                console.log("接收到的服务器数据:",res_data);
+                resolve(res_data)
+            }
+        }
+        //打开请求 open
+        xhr.open("get","http://vue.api.comcto.com/api/password1.php")
+        xhr.send()
+        }).then(function(data){
+            console.log("第一个then方法接收到的数据:",data)
+            str+=data
+            return new Promise(function(resolve,reject){
+                var xhr = new XMLHttpRequest()
+
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4&&xhr.status==200){
+                        //接收服务器响应数据
+                        var res_data = xhr.responseText
+                        console.log("接收到的服务器数据:",res_data);
+                        resolve(res_data)
+                    }
+                }
+                //打开请求open
+                xhr.open("get","http://vue.api.comcto.com/api/password2.php")
+                xhr.send()
+            }).then(function(data){
+                console.log("第二个then方法接收到的数据:",data)
+                str+=data
+                return new Promise(function(resolve,reject){
+                    var xhr = new XMLHttpRequest()
+                    //监听
+                    xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4&&xhr.status==200){
+                        //接收服务器响应数据
+                        var res_data = xhr.responseText
+                        console.log("接收的服务器数据:",res_data)
+                        resolve(res_data)
+                    }
+                  }
+                  //打开请求
+                  xhr.open("get","http://vue.api.comcto.com/api/password3.php")
+                  xhr.send()
+                }).then(function(data){
+                    console.log("第三个then方法接收到的数据:",data)
+                    str+=data
+                    return new Promise(function(resolve,reject){
+                         //实例化
+                    var xhr = new XMLHttpRequest()
+                    //监听
+                    xhr.onreadystatechange=function(){
+                        if(xhr.readyState==4&&xhr.status==200){
+                            //接收服务器响应数据
+                            var res_data=xhr.responseText
+                            console.log("接收的服务器数据:",res_data)
+                            resolve(res_data)
+                        }
+                    }
+                    //打开请求open
+                    xhr.open("get","http://vue.api.comcto.com/api/password4.php")
+                    xhr.send()
+                    }).then(function(data){
+                        console.log("第四个接收到的数据:",data)
+                        str+=data
+                    }) 
+                })
+            })
+        })
+       
+
+    </script>
+</body>
+</html>

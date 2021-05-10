@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./jquery-3.6.0.min.js"></script>
+<body>
+    <script>
+        let pass = [];
+         new Promise(function(resolve,reject){
+            $.ajax({
+            url:"http://vue.api.comcto.com/api/password1.php",
+            method:"get",
+            success:function(res){
+                console.log("服务器返回值:",res);
+                pass.push(res)
+                resolve(pass)
+            }
+         })
+        }).then(function(a){
+            return new Promise(function(resolve,reject){
+                $.ajax({
+                    url:"http://vue.api.comcto.com/api/password2.php",
+                    method:"get",
+                    success:function(res){
+                        console.log("服务器返回值:",res);
+                        pass.push(res)
+                        resolve(pass)
+                    }
+                })
+            })
+        }).then(function(b){
+            return new Promise (function(resolve,reject){
+                $.ajax({
+                url:"http://vue.api.comcto.com/api/password3.php",
+                method:"get",
+                success:function(res){
+                    console.log("服务器返回值:",res);
+                    pass.push(res)
+                    resolve(pass)
+                }
+              })
+            })
+        }).then(function(c){
+            return new Promise(function(resolve,reject){
+                $.ajax({
+                    url:"http://vue.api.comcto.com/api/password4.php",
+                    method:"get",
+                    success:function(res){
+                        console.log("服务器返回值:",res);
+                        pass.push(res)
+                        resolve(pass)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
