@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="/js/vue.2.6.12.min.js"></script>
+<body>
+    <div id="app">
+        <button v-on:click="list">aaaaa</button>
+        <button @click="list">aaaaa</button>
+    </div>
+   
+    <script>
+        var btn = document.querySelector("button");
+        btn.addEventListener("click",function(){
+            alert(1111)
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{},
+            methods:{
+                list(){alert(222)}
+            }
+        })
+    </script>
+</body>
+</html>
