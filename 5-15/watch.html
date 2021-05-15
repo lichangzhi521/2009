@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+</head>
+<script src="../js/axios.min.js"></script>
+<script src="../js/vue.2.6.12.min.js"></script>
+<body>
+    <div id="app">
+        用户名:<input type="text" v-model.lazy="username"><br>
+        Email:<input type="text" v-model.lazy="useremail"><br>
+        手机号:<input type="text" v-model.lazy="mobile"><br>
+        密码:<input type="password" v-model.lazy="pass1"><br>
+        确认密码:<input type="password" v-model.lazy="pass2"><br>
+        <input type="submit" v-on:click="reg" :disabled="status" value="注册" >
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            username:null,
+            useremail:null,
+            mobile:null,
+            pass1:null,
+            pass2:null,
+            status:true,
+            list:[]
+        },
+        methods:{
+            reg(){
+                let user_info={
+                    username:this.username,
+                    useremail:this.useremail,
+                    mobile:this.mobile,
+                    pass1:this.pass1,
+                }
+                axios.post('http://localhost:3001/check/add',user_info).then(function(res){
+                    console.log("服务器返回的数据:",res.data);    //服务器返回的信息
+                    // console.log(res.body);
+                })
+            }
+        },
+        computed:{},
+        //监听器
+        watch:{
+            //用户名
+            username(v){
+                console.log(v);
+                //请求后台接口
+                let api="http://localhost:3001/check/username?user_name="+v
+                console.log(api);
+                axios.get(api).then(function(res){
+                    console.log("服务器返回的数据:",res.data);
+                    if(res.data.error>0){
+                        alert("请换一个用户名")
+                    }
+                })
+            },
+
+            //Email
+            useremail(v){
+                console.log(v);
+                // 请求后台接口
+                let api="http://localhost:3001/check/useremail?email="+v
+                console.log(api);
+                axios.get(api).then(function(res){
+                    console.log("服务器返回的数据:",res.data);
+                    if(res.data.error>0){
+                        alert("请换一个Email")
+                    }
+                })
+        },
+
+        //手机号
+        mobile(v){
+                console.log(v);
+                //请求后台接口
+                let api="http://localhost:3001/check/usermobile?mobile="+v
+                console.log(api);
+                axios.get(api).then(function(res){
+                    console.log("服务器返回的数据:",res.data);
+                    if(res.data.error>0){
+                        alert("请换一个手机号")
+                    }
+                })
+        },
+
+        //密码
+        pass1(v){
+            if(v===this.pass1){
+                this.status=false
+            }
+        }
+    }
+    })
+</script>
+</html>

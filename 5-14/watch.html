@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监听器</title>
+</head>
+<script src="../js/vue.2.6.12.min.js"></script>
+<script src="../js/axios.min.js"></script>
+<body>
+    <div id="app">
+        用户名:<input type="text" v-model.lazy="username"><br>
+        Email:<input type="text" v-model.lazy="useremail"><br>
+        手机号:<input type="text" v-model.lazy="mobile"><br>
+        密码:<input type="text" v-model.lazy="pass1"><br>
+        确认密码:<input type="text" v-model.lazy="pass2"><br>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            username:null,
+            useremail:null,
+            mobile:null,
+            pass1:null,
+            pass2:null,
+        },
+        methods:{},
+        computed:{},
+        //监听器
+        watch:{
+           username(v){
+               console.log(v);
+               //请求后台接口，检测用户名是否已被占用
+               let api = "http://localhost:3001/"
+           }
+        },
+    })
+</script>
+</html>

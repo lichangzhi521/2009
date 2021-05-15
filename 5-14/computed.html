@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model.number="num1">
+        <input type="text" v-model.number="num2">
+        <input type="text" v-model.number="num3">
+        总和:{{total}}
+    </div>
+    <script src="../js/vue.2.6.12.min.js"></script>
+</body>
+<script>
+    new Vue({
+        el:"#app",        //勾子函数
+        data:{
+            num1:0,
+            num2:0,
+            num3:0
+        },          //数据 值
+        methods:{},       //方法
+        created(){},         //
+        computed:{
+            total(){
+                return this.num1+this.num2+this.num3
+            }
+
+        }
+
+    })
+</script>
+</html>
